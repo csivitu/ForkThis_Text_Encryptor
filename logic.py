@@ -41,8 +41,6 @@ def encrypt_image(key:str)->str:
     except (ValueError, TypeError):
         return "ERROR: Invalid Key for Encryption."
     
-from cryptography.fernet import Fernet, InvalidToken
-
 
 
 def decrypt_message(encrypted_message: str, key: str) -> str:
