@@ -45,7 +45,7 @@ def handle_decrypt():
         pass
     result_text.insert('1.0', decrypted_result)
     buttonSound()
-    
+
 def handle_clear():
     message_entry.delete(0, tk.END)
     key_entry.delete(0, tk.END)
@@ -118,13 +118,13 @@ button_frame = tk.LabelFrame(frame,padx=10,pady=5,background=otherFrames)
 button_frame.pack(fill='x',padx=10,pady=10)
 
 encrypt_button = tk.Button(button_frame, text="Encrypt",command=handle_encrypt,bg=buttonsColor)
-encrypt_button.pack(side="left", padx=10)
+encrypt_button.pack(side="left", padx=50)
 
 decrypt_button = tk.Button(button_frame, text="Decrypt",command=handle_decrypt,bg=buttonsColor)
-decrypt_button.pack(side="left", padx=10)
+decrypt_button.pack(side="left", padx=50)
 
 clear_button = tk.Button(button_frame, text="Clear",command=handle_clear,bg=buttonsColor)
-clear_button.pack(side="left", padx=10)
+clear_button.pack(side="left", padx=50)
 
 encrypt_file_button = tk.Button(button_frame, text="Encrypt File", command=handle_encrypt_file, bg=buttonsColor)
 encrypt_file_button.pack(side="left", padx=10)
