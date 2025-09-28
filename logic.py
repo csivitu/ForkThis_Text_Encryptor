@@ -44,6 +44,9 @@ def encrypt_image(key:str)->str:
 
 
 def decrypt_message(encrypted_message: str, key: str) -> str:
-    f = Fernet(key.encode())
-    decrypted_message = f.decrypt(encrypted_message.encode())
-    return decrypted_message.decode()
+    try:
+        f = Fernet(key.encode())
+        decrypted_message = f.decrypt(encrypted_message.encode())
+        return decrypted_message.decode()
+    except (InvalidToken, ValueError, TypeError):
+        return "ERROR: Invalid Key for Encryption."
