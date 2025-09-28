@@ -29,10 +29,10 @@ def encrypt_message(message: str, key: str) -> str:
 def encrypt_image(key:str)->str:
     try:
         f = Fernet(key.encode())
-        encrypted_bytes=f.encrypt(image_to_bytes())
-        with open("test.jpg", 'rb') as file:
-                image_data = file.read()    
-        encrypted_data = Fernet.encrypt(image_data)
+        image_data = image_to_bytes()
+        if image_data is None:
+            return "ERROR: Image file not found."
+        encrypted_data = f.encrypt(image_data)
         encrypted_path = "test" + '.enc'
         with open(encrypted_path, 'wb') as file:
             file.write(encrypted_data)
