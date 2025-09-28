@@ -6,9 +6,10 @@ import pygame as pg
 from tkinter import filedialog
 
 pg.mixer.init()
-pg.mixer.music.load("buttonClick.mp3")
+click_sound = pg.mixer.Sound("buttonClick.mp3")
+
 def buttonSound():
-    pg.mixer.music.play()
+    click_sound.play()
 
 def handle_generate_key():
     new_key = logic.generate_key_str()
@@ -40,11 +41,8 @@ def handle_decrypt():
         messagebox.showwarning("Input Error", "Key field cannot be empty.")
         return
 
-    try:
-        decrypted_result = logic.decrypt_message(encrypted_message, key)
-    except:
-        pass
-
+    decrypted_result = logic.decrypt_message(encrypted_message, key)
+    result_text.delete('1.0', tk.END)
     result_text.insert('1.0', decrypted_result)
     buttonSound()
 
